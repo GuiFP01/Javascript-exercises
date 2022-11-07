@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span style="font-size: 150%">Multiplication table</span><br>
+    <span style="font-size: 100%; margin-left: 2.5%;">(Using FOR)</span><br><br>
+    <script>
+        function jumpLine(){
+            document.write("<br>");
+        }
+        function showMessage(msg){
+            document.write(msg);
+        }
+
+        let theNumber = parseInt(prompt("What's the number?"));
+
+        for(let counter = 0; counter <= 10; counter++){
+            showMessage(theNumber + " x " + counter + " = " + (theNumber*counter));
+            jumpLine();
+        }
+    </script>  
+
+</body>
+</html>
