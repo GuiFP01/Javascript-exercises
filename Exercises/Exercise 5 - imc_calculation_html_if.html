@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC Calculation 2</title>
+</head>
+<body>
+    <span style="font-size: 130%; font-family: sans-serif;">Calculate your IMC here!</span><br>
+    <em><span style="font-size: 100%;">Fast and easy</span></em><br>
+    <span style="font-size: 60%">(imc < 18.5 = below healthy limit)</span><br>
+    <span style="font-size: 60%">(imc >= 18.5 and <= 24.9 inside healthy limits)</span><br>
+    <span style="font-size: 60%">(imc > 24.9 = above healthy limit)</span><br><br>
+    <label>Put your weight here:<input type="number" min="0" max="1000" id="theWeight" style="margin-bottom: 0.2%"></label><span> Kg</span><br>
+    <label>Put your height here:<input type="number" min="0" max="5" id="theHeight" style="margin-bottom: 0.5%"></label><span> m</span><br>
+    <button type="button" onclick="myImc()" style="margin-left: 3%">Click to the IMC</button><br><br>
+    <span>Result:</span><span style="color: red" id="imcResult"></span>
+    <script>
+        function imcCalculated(weight, height){
+            let imc = weight/(height*height);
+            return imc;
+        }
+
+        function myImc(){
+            let myWeight = Number(document.getElementById("theWeight").value);
+            let myHeight = Number(document.getElementById("theHeight").value);
+            let myImcCalculated = imcCalculated(myWeight, myHeight);
+
+            if(myImcCalculated < 18.5){
+                document.getElementById("imcResult").innerHTML = ("Your IMC is " + Math.round(myImcCalculated) + ". So, not good. Your IMC is below the healthy limits, according to OMS.");
+            } else if(myImcCalculated >= 18.5 && myImcCalculated <= 24.9){
+                document.getElementById("imcResult").innerHTML = ("Your IMC is " + Math.round(myImcCalculated) + ". So, very good. Your IMC is inside healthy limits, according to OMS.");
+            } else{
+                document.getElementById("imcResult").innerHTML = ("Your IMC is " + Math.round(myImcCalculated) + ". So, not good. Your IMC is above the healthy limits, according to OMS.");
+            }
+        }
+    </script>  
+
+</body>
+</html>
