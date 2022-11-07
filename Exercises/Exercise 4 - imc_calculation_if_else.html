@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC Calculation</title>
+</head>
+<body>
+    <span style="font-size: 150%; margin-left: 8%;">IMC Calculation</span><br>
+    <span style="font-size: 100%; margin-left: 9.5%;">(Using IF/ELSE)</span><br><br>
+    <script>
+        function jumpLine(){
+            document.write("<br>");
+        }
+        function showMessage(msg){
+            document.write(msg);
+            jumpLine();
+        }
+        function findImc(theWeight, theHeight){
+            let imc = theWeight/(theHeight*theHeight);
+            return imc;
+        }
+
+        let yourName = prompt("What is your name?");
+        let myWeight = prompt(yourName + ", what's your weight?");
+        let myHeight = prompt(yourName + ", what's your height?");
+        let myImc = findImc(myWeight, myHeight);
+
+        showMessage(yourName + ", your IMC calculated is " + Math.round(myImc) + ".");
+        jumpLine();
+
+        if(myImc < 18.5){
+            showMessage("So, not good. Your IMC is below the healthy limits, according to OMS.")
+        } else if(myImc >= 18.5 && myImc <= 24.9){
+            showMessage("So, very good. Your IMC is inside healthy limits, according to OMS.")
+        } else{ 
+            showMessage("So, not good. Your IMC is above the healthy limits, according to OMS.")
+        }
+    </script>  
+
+</body>
