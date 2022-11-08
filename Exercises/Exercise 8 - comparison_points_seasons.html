@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison between points using if/else</title>
+</head>
+<body>
+    <span style="font-size: 120%">Comparison between two seasons final punctuation of a sports team</span><br>
+    <hr>
+    <script>
+
+        function jumpLine(){
+            document.write("<br>");
+        }
+        function showMsg(msg){
+            document.write(msg);
+            jumpLine();
+        }
+        
+        let lastPoints = parseInt(prompt("What was the last year punctuation?"));
+        let victories = parseInt(prompt("How many victories this year?"));
+        let draws = parseInt(prompt("How many draws this year?"));
+        let result = victories*3 + draws;
+
+        showMsg("The football teams final punctuation this year was = " + result + ". <br>");
+
+        if(result < lastPoints){
+            showMsg("The punctuation was worse than last year, when the team made " + lastPoints + ".");
+        } else if(result > lastPoints){
+            showMsg("The punctuation was better than last year, when the team made " + lastPoints + ".");
+        } else{
+            showMsg("The punctuation was the same as last year.");
+        }
+
+    </script>  
+
+</body>
+</html>
