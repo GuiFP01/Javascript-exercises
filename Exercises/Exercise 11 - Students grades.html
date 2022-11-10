@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation of students grades with if-else</title>
+</head>
+<body>
+
+    <span style="font-size: 150%">Students Final Grades</span><br>
+    <span style="font-size: 90%">(Below 7 - Student status: <strong>Failed</strong>)</span><br>
+    <span style="font-size: 90%">(Above or equal to 7 - Student status: <strong>Passed</strong>)</span><br><br>
+    <label>First Note:<input type="number" name="classNote" + min="0" max="10" id="grade1" style="margin-bottom: 0.2%"></label><br>
+    <label>Second Note:<input type="number" name="classNote" + min="0" max="10" id="grade2" style="margin-bottom: 0.3%"></label><br>
+    <span>Result:</span><span style="color: red" id="gradesResult"></span><br>
+    <button type="button" onclick="showGradeAverage()" style="margin-top: 0.5%; margin-left: 3.5%;">Final Note</button>
+    
+    <script>
+
+        function showGradeAverage(){
+            let theGrade1 = Number(document.getElementById("grade1").value);
+            let theGrade2 = Number(document.getElementById("grade2").value);
+            let gradeAverage = (theGrade1 + theGrade2)/2;
+
+            if(gradeAverage < 7){
+                document.getElementById("gradesResult").innerHTML = "Student FAILED with a a final grade of " + "<strong>" + gradeAverage + "</strong>";
+            } else {
+                document.getElementById("gradesResult").innerHTML = "Student PASSED with a a final grade of " + "<strong>" + gradeAverage + "</strong>";
+            }
+        }
+
+    </script>  
+</body>
+</html>
