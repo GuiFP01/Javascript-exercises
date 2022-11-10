@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ark of Noah using SWITCH</title>
+</head>
+<body>
+
+    <span style="font-size: 150%">Ark of Noah</span><br>
+    <span style="font-size: 95%">Discover which of these animals below are allowed to enter the Ark</span><br><br>
+    <select id="animalList">
+        List of animals:
+        <option value="dog">Dog</option>
+        <option value="dragon">Dragon</option>
+        <option value="cat">Cat</option>
+        <option value="dino">Dinosaur</option>
+        <option value="cow">Cow</option>
+        <option value="mammoth">Mammoth</option>
+    </select><br><br>
+    <span>Result: </span><span style="color: red" id="animalResult"></span><br>
+    <button type="button" onclick="findAnimal()" style="margin-top: 0.5%">Verify the animal</button>
+
+    <script>
+
+        function findAnimal(){
+            let selection = document.querySelector("select");
+            let animals = selection.value;
+            let selectedAnimal = selection.options[selection.selectedIndex].text;
+            let message = " allowed to enter the Ark!"
+            switch(animals){
+                case "dog":
+                case "cat":
+                case "cow":
+                    message = selectedAnimal + message;
+                    break;
+                case "dragon":
+                case "dino":
+                case "mammoth":
+                    message = selectedAnimal + " NOT" + message;
+                    break;
+            }
+            document.getElementById("animalResult").innerHTML = message;
+            return true;
+        }
+
+    </script>  
+</body>
+</html>
