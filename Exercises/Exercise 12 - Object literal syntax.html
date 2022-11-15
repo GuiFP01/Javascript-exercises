@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object literal Syntax</title>
+</head>
+<body>
+   <h1 style="font-size: 150%">Creating an object using object literal Syntax with some examples</h1>
+    <script>
+        let person = {
+            firstName: "Guilherme",
+            secondName: "Pereira",
+            email: "gpereirabio@gmail.com",
+            skills: ["HTML", "CSS", "Javascript"],
+            fullName: function(){
+                return (this.firstName + " " + this.secondName)
+            },
+            otherSkill: function(newSkill){
+                this.skills[this.skills.length] = newSkill
+            },
+        }
+
+        document.write(person.firstName + "<br>");
+        document.write(person["secondName"] + "<br><br>");
+
+        document.write(person.fullName() + "<br>");
+
+        document.write(Object.keys(person)[2] + ": ");
+        document.write(person.email + "<br><br>");
+
+        document.write(person.skills[2] + "<br>");
+        document.write(person.skills  + "<br>");
+        person.otherSkill("React");
+        document.write(person.skills  + "<br><br><br>");
+
+        for(indice in person){
+            document.write(indice + ": ");
+            document.write(person[indice] + "<br>");
+        }
+
+    </script>  
+
+</body>
+</html>
