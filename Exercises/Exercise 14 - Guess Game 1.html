@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Game 1</title>
+</head>
+<body>
+    
+    <input/>
+    <button>Click here to try find the number</button>
+
+    <script>
+
+        let inputArea = document.querySelector("input");
+        inputArea.focus();
+
+        let numberChoices = [2,4,6,8];
+        
+
+        function verifyNumber(){
+
+            let foundNumber = false;
+
+            for(let tries = 0; tries < numberChoices.length; tries++){
+                if(inputArea.value == numberChoices[tries]){
+                    alert("YOU FOUND IT! The number is " + inputArea.value);
+                    foundNumber = true;
+                    break;
+                }
+            }
+            if(foundNumber == false){
+                alert("YOU MISSED!");
+            }
+            inputArea.value = "";
+            inputArea.focus();            
+        }
+
+        let buttonArea = document.querySelector("button");
+        buttonArea.onclick = verifyNumber;
+
+    </script>  
+
+</body>
+</html>
