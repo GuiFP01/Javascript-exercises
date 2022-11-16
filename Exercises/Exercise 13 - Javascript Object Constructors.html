@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Object Constructors</title>
+</head>
+<body>
+
+   <h1 style="font-size: 150%">Creating Javascript Object Constructors with some examples</h1>
+
+    <script>
+
+        function person(fn, sn, td, em, sk){
+            this.firstName = fn,
+            this.secondName = sn,
+            this.thirdName = td,
+            this.email = em,
+            this.skills = [sk]
+        }
+        person.prototype.fullName = function(){
+            return (this.firstName + " " + this.secondName + " " + this.thirdName)
+        };
+        person.prototype.otherSkill = function(newSkill){
+            this.skills[this.skills.length] = newSkill;
+        };
+        person.prototype.nationality = "portuguese";
+
+        let myself = new person("Guilherme", "Fernandes", "Pereira", "gpereirabio@gmail.com", ["HTML", "CSS", "Javascript"]);
+        let myFather = new person("Celso", "Soares", "Pereira", "celso.pereira@gmail.com", ["Cars", "Motorbikes", "breads"]);
+
+        document.write(myself.firstName + "<br>");
+        document.write(myself.fullName() + "<br><br>");
+        
+        document.write(Object.keys(myself)[3] + ": ");
+        document.write(myself.email + "<br><br>");
+
+        document.write("[" + myself.skills + "]" + "<br>");
+        myself.otherSkill("React");
+        document.write("[" + myself.skills + "]" + "<br><br>")
+
+        myself.nationality = "brazilian";
+        document.write(myself.nationality + "<br>");
+        document.write(myFather.nationality + "<br><br>");
+
+        document.write(myFather.fullName() + "<br>");
+        document.write(myFather.firstName + " Luis " + myFather.secondName + " " + myFather.thirdName + "<br>");
+        myFather.nickname = "Pitico";
+        document.write(myFather.nickname + "<br>");
+        document.write(myself.nickname + "<br><br>");
+
+        for(indice in myFather){
+            document.write(indice + ": ");
+            document.write(myFather[indice] + "<br>");
+        };
+
+    </script>  
+
+</body>
+</html>
